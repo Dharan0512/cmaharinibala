@@ -91,7 +91,7 @@ export function FeaturedProject({ theme }) {
             rel="noopener noreferrer"
           >
             <Icon name="external" />
-            View the original build
+            Go live
           </a>
         </div>
 
