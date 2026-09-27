@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harini-bala.vercel.app/sitemap.xml

@@ -1,0 +1,191 @@
+.contact {
+  background: radial-gradient(
+    ellipse 70% 100% at 50% 0%,
+    color-mix(in srgb, var(--accent) 12%, transparent) 0%,
+    transparent 68%
+  );
+  border-top: 1px solid var(--line);
+}
+
+.contact__head {
+  max-width: 44ch;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.contact__head h2 {
+  font-size: var(--step-3);
+  margin: 0.7rem 0 0.9rem;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 0.75rem;
+}
+
+.contact__card {
+  position: relative;
+  transition:
+    border-color var(--t-mid) var(--ease),
+    transform var(--t-mid) var(--ease),
+    box-shadow var(--t-mid) var(--ease);
+}
+
+.contact__card:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-hover);
+}
+
+.contact__card > a {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 3rem 1.15rem 1.15rem;
+}
+
+.contact__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 9px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.contact__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* the LinkedIn glyph is a filled mark, not a stroked one */
+.contact__icon svg path[fill='currentColor'] {
+  stroke: none;
+}
+
+.contact__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.contact__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact__value {
+  font-size: 0.93rem;
+  color: var(--ink);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 561px) and (max-width: 1080px) {
+  /* two-up cards are the tightest case — shrink rather than wrap */
+  .contact__value {
+    font-size: 0.86rem;
+  }
+}
+
+.contact__hint {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.contact__go {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition:
+    stroke var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease);
+}
+
+.contact__card:hover .contact__go {
+  stroke: var(--accent);
+  transform: translateX(2px);
+}
+
+.contact__copy {
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.7rem;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: var(--surface);
+  transition:
+    color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+
+.contact__copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.contact__copy.is-done {
+  color: var(--good);
+  border-color: var(--good);
+}
+
+.contact__copy svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.contact__foot p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-2);
+  font-size: var(--step--1);
+}
+
+.contact__pin {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

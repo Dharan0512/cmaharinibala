@@ -1,0 +1,124 @@
+/* ---------------------------------------------------------------------------
+   Fixed atmosphere behind every section. Nothing here is interactive, and the
+   whole layer sits below the content in its own stacking context.
+   --------------------------------------------------------------------------- */
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--ambient-base);
+}
+
+/* drifting colour fields ---------------------------------------------------- */
+
+.ambient__field {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(var(--ambient-blur, 90px));
+  opacity: var(--ambient-strength);
+  will-change: transform;
+}
+
+.ambient__field--a {
+  top: -22vh;
+  left: -14vw;
+  width: 64vw;
+  height: 64vw;
+  min-width: 480px;
+  min-height: 480px;
+  background: radial-gradient(circle at 50% 50%, var(--ambient-1), transparent 68%);
+  animation: drift-a 26s var(--ease) infinite alternate;
+}
+
+.ambient__field--b {
+  top: -6vh;
+  right: -20vw;
+  width: 58vw;
+  height: 58vw;
+  min-width: 420px;
+  min-height: 420px;
+  background: radial-gradient(circle at 50% 50%, var(--ambient-2), transparent 68%);
+  animation: drift-b 32s var(--ease) infinite alternate;
+}
+
+.ambient__field--c {
+  bottom: -30vh;
+  left: 26vw;
+  width: 62vw;
+  height: 62vw;
+  min-width: 440px;
+  min-height: 440px;
+  background: radial-gradient(circle at 50% 50%, var(--ambient-3), transparent 70%);
+  animation: drift-c 38s var(--ease) infinite alternate;
+}
+
+@keyframes drift-a {
+  to {
+    transform: translate3d(8vw, 6vh, 0) scale(1.12);
+  }
+}
+
+@keyframes drift-b {
+  to {
+    transform: translate3d(-7vw, 9vh, 0) scale(1.08);
+  }
+}
+
+@keyframes drift-c {
+  to {
+    transform: translate3d(6vw, -8vh, 0) scale(1.14);
+  }
+}
+
+/* ledger grid --------------------------------------------------------------- */
+
+.ambient__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--ambient-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ambient-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 120% 80% at 50% 0%, #000 10%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 120% 80% at 50% 0%, #000 10%, transparent 72%);
+}
+
+/* pointer glow -------------------------------------------------------------- */
+
+.ambient__glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46rem;
+  height: 46rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--ambient-glow) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, var(--ambient-glow-core) 0%, transparent 72%);
+  opacity: 0;
+  transition: opacity 600ms var(--ease);
+  will-change: transform;
+}
+
+.ambient__glow.is-on {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient__field {
+    animation: none;
+  }
+
+  .ambient__glow {
+    display: none;
+  }
+}
+
+@media print {
+  .ambient {
+    display: none;
+  }
+}

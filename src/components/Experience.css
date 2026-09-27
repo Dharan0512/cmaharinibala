@@ -1,0 +1,174 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.role {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 0 1.1rem;
+}
+
+.role__rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.role__rail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.role:first-child .role__rail::before {
+  top: 0.65rem;
+}
+
+.role:last-child .role__rail::before {
+  bottom: auto;
+  height: 0.65rem;
+}
+
+.role__dot {
+  position: relative;
+  margin-top: 0.4rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+
+.role__body {
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  min-width: 0;
+}
+
+.role__period {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.role__body h3 {
+  font-size: var(--step-2);
+  letter-spacing: -0.02em;
+}
+
+.role__company {
+  margin-top: 0.2rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: var(--step-0);
+}
+
+.role__summary {
+  margin-top: 0.75rem;
+  color: var(--ink-2);
+  max-width: var(--measure);
+  line-height: 1.65;
+}
+
+.role__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+.role__stack li {
+  padding: 0.28rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: var(--surface-2);
+}
+
+.role__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.1rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--ink-2);
+  transition:
+    color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+
+.role__toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.role__chev {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--t-mid) var(--ease);
+}
+
+.role__chev.is-up {
+  transform: rotate(180deg);
+}
+
+.role__points {
+  margin-top: 1.1rem;
+  animation: points-in var(--t-mid) var(--ease);
+}
+
+@keyframes points-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.role__points ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding-left: 0.1rem;
+  border-left: 1px solid var(--line);
+}
+
+.role__points li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--ink-2);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  max-width: var(--measure);
+}
+
+.role__points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.7rem;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+@media (max-width: 520px) {
+  .role {
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 0 0.85rem;
+  }
+}
