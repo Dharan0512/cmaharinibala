@@ -73,6 +73,15 @@ export function FeaturedProject({ theme }) {
         <div className="work__actions reveal">
           <a
             className="btn btn--primary"
+            href={project.artifactUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="external" />
+            Go live
+          </a>
+          <a
+            className="btn"
             href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -83,15 +92,6 @@ export function FeaturedProject({ theme }) {
           <a className="btn" href={project.excelUrl} download={project.excelFileName}>
             <Icon name="sheet" />
             Download the Excel model
-          </a>
-          <a
-            className="btn btn--ghost"
-            href={project.artifactUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="external" />
-            Go live
           </a>
         </div>
 

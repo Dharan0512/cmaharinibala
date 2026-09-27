@@ -22,8 +22,12 @@
   white-space: nowrap;
 }
 
-.hero__name span {
-  color: var(--accent);
+.hero__name--harini {
+  color: #3b82f6;
+}
+
+.hero__name--bala {
+  color: #ffffff;
 }
 
 .hero__headline {
