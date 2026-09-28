@@ -19,15 +19,24 @@
   font-weight: 700;
   letter-spacing: -0.038em;
   line-height: 1.02;
+  text-wrap: balance;
+}
+
+.hero__cred {
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--muted);
   white-space: nowrap;
 }
 
+/* Theme tokens, not literals — a hardcoded white "Bala" vanishes in light mode. */
 .hero__name--harini {
-  color: #3b82f6;
+  color: var(--accent);
 }
 
 .hero__name--bala {
-  color: #ffffff;
+  color: var(--ink);
 }
 
 .hero__headline {
@@ -36,7 +45,8 @@
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  max-width: 24ch;
+  max-width: 30ch;
+  text-wrap: balance;
   color: var(--ink);
 }
 
@@ -115,7 +125,7 @@
 
 .hero__stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   margin-top: clamp(2.5rem, 6vw, 4rem);
   background: var(--line);
@@ -160,6 +170,11 @@
 
   .hero__stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* three tiles over two columns would leave a hole in the last row */
+  .hero__stats .stat:last-child {
+    grid-column: 1 / -1;
   }
 }
 

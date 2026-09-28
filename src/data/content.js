@@ -6,15 +6,16 @@ export const site = {
   url: 'https://harini-bala.vercel.app', // update after the first Vercel deploy
   title: 'Harini Raamiya Bala — Cost & Management Accountant | FP&A',
   description:
-    'Cost & Management Accountant with 2 years in FP&A, management reporting and record-to-report at TCS. SAP S/4HANA, Power BI and Advanced Excel. Chennai, India.',
+    'CMA-qualified finance professional working in FP&A, financial analysis, record to report and management reporting. SAP S/4HANA, Power BI and Microsoft Excel. Chennai, India.',
 }
 
 export const person = {
   name: 'Harini Raamiya Bala',
   shortName: 'Harini',
+  credential: 'CMA',
   initials: 'HB',
   role: 'Cost & Management Accountant',
-  discipline: 'FP&A · Management Reporting · R2R',
+  discipline: 'FP&A · Financial Analysis · Record to Report · Management Reporting',
   location: 'Chennai, India',
   email: 'cmaharinibala@gmail.com',
   phone: '+91 7358357417',
@@ -24,9 +25,10 @@ export const person = {
   resume: '/Harini_Raamiya_Bala.pdf',
   resumeFileName: 'Harini-Raamiya-Bala-CMA-Resume.pdf',
   photo: '/harini.jpg',
-  headline: 'Numbers that hold up to the question behind them.',
+  headline:
+    'I turn numbers into narratives, insights into strategy, and financial data into smarter decisions.',
   intro:
-    'I plan, report and reconcile — turning ledgers and budgets into the variance story management actually needs. Two years across FP&A and record-to-report for a UK-based client at TCS, and statutory compliance for 80+ clients before that.',
+    'A CMA-qualified finance professional with a strong interest in FP&A, financial analysis, problem-solving and business decision-making. I combine my finance knowledge with hands-on experience in Excel and Power BI, showcased through the practical projects below.',
 }
 
 // ---------------------------------------------------------------------------
@@ -43,12 +45,14 @@ export const keywords = [
   'financial planning',
   'financial reporting',
   'management reporting',
+  'record to report',
   'record-to-report',
   'R2R',
   'business partnering',
   'financial analysis',
   // the analysis
   'variance analysis',
+  'variance commentary',
   'actual vs budget',
   'budget versus actual',
   'budgeting',
@@ -77,13 +81,12 @@ export const keywords = [
   'SAP FICO',
   'SAP',
   'Power BI',
-  'Advanced Excel',
+  'Microsoft Excel',
   'pivot tables',
   'slicers',
   // compliance and audit
   'statutory compliance',
   'GST',
-  'income tax',
   'internal audits',
   'internal audit',
   'fixed assets',
@@ -97,236 +100,228 @@ export const keywords = [
 export const heroStats = [
   { value: 2, suffix: ' yrs', label: 'FP&A & R2R experience' },
   { value: 50, suffix: '%', label: 'Manual processing time cut' },
-  { value: 80, suffix: '+', label: 'GST clients filed monthly' },
   { value: 9.26, decimals: 2, label: 'B.Com CGPA, SRM' },
 ]
 
 export const nav = [
-  { id: 'work', label: 'Work' },
-  { id: 'impact', label: 'Impact' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'education', label: 'Education' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'capabilities', label: 'Capabilities' },
   { id: 'about', label: 'About' },
-  { id: 'resume', label: 'Résumé' },
+  { id: 'vision', label: 'Vision' },
 ]
 
 // --- Featured project -------------------------------------------------------
 
 export const project = {
-  eyebrow: 'Featured project',
+  eyebrow: 'Selected work',
   title: 'Finance KPI Dashboard',
-  kicker: 'An FP&A reporting pack, built twice — once in Excel, once for the web.',
+  kicker:
+    'An interactive finance dashboard that tracks revenue, profit, cost and budget performance across regions, departments, channels and customers.',
   demoUrl: '/projects/finance-kpi-dashboard.html',
   excelUrl: '/projects/Finance-KPI-Dashboard.xlsm',
   excelFileName: 'Finance-KPI-Dashboard.xlsm',
-  artifactUrl: 'https://claude.ai/artifact/Fgf4dTMKgD2wDMfCBfRnvi',
+  dataset:
+    '500 daily transactions · Jan 2025 – May 2026 · 4 regions · 6 departments · 3 sales channels · 5 product categories · 10 expense categories',
   metrics: [
-    { value: '500', label: 'daily transactions' },
-    { value: '6', label: 'departments' },
-    { value: '4', label: 'regions' },
-    { value: '17', label: 'months of data' },
+    { value: '₹8.51 Cr', label: 'Revenue analysed' },
+    { value: '51.0%', label: 'Profit margin' },
+    { value: '+1.0%', label: 'Profit vs budget' },
+    { value: '243', label: 'Customers tracked' },
   ],
   narrative: [
     {
       heading: 'The problem',
-      body: 'Management reviews stall when the pack only answers the question that was asked last month. Revenue is up — against what? Which department, which region, and is that a real gain or a budget set too low? A static monthly report cannot follow a question to its second and third step.',
+      body: 'A static monthly report shows what happened, but not why. Management needs to see which region, department or cost line is driving performance, and whether results are genuinely beating the budget.',
     },
     {
       heading: 'What I built',
-      body: 'A financial performance model over 17 months of daily transactions, covering six departments and four regions. It started as a macro-enabled Excel workbook — 14 pivot tables, 6 charts and 3 slicers over a single flat fact table — then I rebuilt it for the web so the same analysis could be opened by anyone with a link, on any device, with no Excel and no macro warning.',
+      body: 'A macro-enabled Excel dashboard on a single clean data table, with 7 pivot tables, 6 charts and Month and Region slicers. Every KPI tile and chart updates together when a filter changes. I also rebuilt it for the web so anyone can open it on any device.',
     },
     {
-      heading: 'What it answers',
-      body: 'Revenue and profit trend month by month; budget versus actual profit across EBITDA, gross profit, net profit, operating expenses and revenue; revenue, expenses and profit by department; where expenses concentrate across ten categories; the top ten customers by revenue; and revenue split by sales channel and region. Every filter recalculates the KPI tiles, all six charts and the underlying transaction table together, so a question can be followed all the way down to the rows behind the number.',
-    },
-    {
-      heading: 'How I approached it',
-      body: 'One clean fact table, then everything derived from it — no parallel copies of the data to fall out of sync. Profit is always revenue less expenses; variance is always actual against budget profit. Amounts follow the Indian numbering convention in lakh and crore, because the audience reads them that way.',
+      heading: 'What it tracks',
+      bullets: [
+        'Revenue, expenses and profit trend by month',
+        'Actual vs budget profit across revenue, gross profit, EBITDA, operating expenses and net profit',
+        'Performance by region, department and sales channel',
+        'Expense mix across 10 cost categories',
+        'Top 10 customers by revenue',
+      ],
     },
   ],
-  tools: ['Advanced Excel', 'Pivot tables & slicers', 'Variance analysis', 'KPI design', 'Data visualisation', 'Power BI thinking'],
-  notes: [
-    { k: 'Excel model', v: '14 pivot tables · 6 charts · 3 slicers · macro-enabled' },
-    { k: 'Web rebuild', v: 'Filters, sortable ledger, light & dark — runs in the browser' },
-    { k: 'Period', v: 'January 2025 – May 2026' },
+  insights: [
+    {
+      n: '01',
+      title: 'Budget beaten on both lines',
+      body: 'Revenue came in 0.2% above budget and profit 1.0% above, on a healthy 51% margin.',
+    },
+    {
+      n: '02',
+      title: 'Monthly margins swing but revenue stays steady',
+      body: 'Monthly revenue held between ₹44 L and ₹57 L, while margin moved from 43.9% (Jul 2025) to 56.9% (Jun 2025). The swings come from costs, not sales.',
+    },
+    {
+      n: '03',
+      title: 'West leads on size, East on efficiency',
+      body: 'West brings in 28% of revenue (₹2.40 Cr), but East earns the best margin at 53.1%. South is the only region below its revenue budget (−0.5%).',
+    },
+    {
+      n: '04',
+      title: 'Operations missed revenue but beat profit',
+      body: 'It is the largest department (₹1.48 Cr) and took the biggest revenue-budget miss (−1.6%), yet it still beat its profit budget — on the best cost control of any department (53.9% margin).',
+    },
+    {
+      n: '05',
+      title: 'Three cost lines drive half the spend',
+      body: 'Salaries (27%), marketing (13%) and rent (12%) make up 52% of total expenses, so that is where cost control has the most effect.',
+    },
+    {
+      n: '06',
+      title: 'Low customer concentration risk',
+      body: 'The top 10 customers contribute only 11% of revenue across 243 customers, so no single account can move the results.',
+    },
+    {
+      n: '07',
+      title: 'Margins are improving',
+      body: 'The 2026 year-to-date margin is 52.0%, up from 50.6% in 2025.',
+    },
+  ],
+  tools: [
+    'Microsoft Excel',
+    'Pivot tables & slicers',
+    'Excel macros',
+    'Variance analysis',
+    'KPI analysis',
+    'Dashboard design',
   ],
 }
 
-// --- Impact -----------------------------------------------------------------
+// --- Capabilities -----------------------------------------------------------
+// One flat list. `key` flags the cards shown under "Key Skills"; every other tab
+// filters on `category`, so a card can appear in both.
 
-export const impact = {
-  title: 'Impact',
-  lede: 'The work that moved a number, not just a deadline.',
-  items: [
-    {
-      figure: '50%',
-      title: 'Cut reconciliation time by half',
-      body: 'Built SAP S/4HANA report variants and Excel-based improvements for recurring reconciliation work — roughly 3 hours back per cycle, and a process that no longer depended on remembering the right selection screen.',
-      tag: 'TCS',
-    },
-    {
-      figure: '80+',
-      title: 'GST returns filed monthly, on time',
-      body: 'Monthly GST for 80+ clients and income tax returns for 25+ clients across diverse sectors, with consistent on-time submission and no compliance slippage.',
-      tag: 'Smart Accountants',
-    },
-    {
-      figure: 'KT',
-      title: 'Led knowledge transfer with the client',
-      body: 'Ran KT sessions with UK client stakeholders to capture business processes, accounting requirements, controls and reporting procedures — then documented them so the process survived a handover.',
-      tag: 'TCS',
-    },
-    {
-      figure: '★',
-      title: 'Recognised at the TCS town hall',
-      body: 'Named for outstanding performance on the BBC client account, and separately appreciated by management for automating the bank reconciliation process. Also a BPS Torch Bearers Award for representing the team across inter-branch events.',
-      tag: 'Awards',
-    },
-  ],
-}
+export const capabilityTabs = [
+  { id: 'key', label: 'Key Skills' },
+  { id: 'finance', label: 'Finance' },
+  { id: 'technical', label: 'Technical' },
+  { id: 'soft', label: 'Soft Skills' },
+  { id: 'other', label: 'Other Skills' },
+]
 
-// --- Skills -----------------------------------------------------------------
-
-export const skills = [
-  {
-    group: 'Systems & tools',
-    note: 'Where the work actually happens',
-    items: [
-      { name: 'SAP FICO S/4HANA', level: 'Daily', featured: true },
-      { name: 'Advanced Excel', level: 'Daily', featured: true },
-      { name: 'Power BI', level: 'Working' },
-      { name: 'Blackline', level: 'Working' },
-      { name: 'Zoho Books', level: 'Working' },
-      { name: 'Tally Prime & ERP 9', level: 'Working' },
-      { name: 'Compu-Tax', level: 'Working' },
-    ],
-  },
-  {
-    group: 'Core competencies',
-    note: 'The finance work itself',
-    items: [
-      { name: 'Budgeting & forecasting' },
-      { name: 'Variance analysis' },
-      { name: 'MIS reporting' },
-      { name: 'Cost control & analysis' },
-      { name: 'Revenue & expense analysis' },
-      { name: 'KPI analysis' },
-      { name: 'Financial insights' },
-      { name: 'Month-end close & accruals' },
-      { name: 'Management reporting' },
-      { name: 'Business partnering' },
-    ],
-  },
-  {
-    group: 'How I work',
-    note: 'What colleagues notice',
-    items: [
-      { name: 'Analytical thinking' },
-      { name: 'Stakeholder management' },
-      { name: 'Time management' },
-      { name: 'Adaptability' },
-      { name: 'Attention to detail' },
-    ],
-  },
+export const capabilities = [
+  // finance
+  { code: 'FR', title: 'Financial Reporting', description: 'Financial statements and reporting', category: 'finance', key: true },
+  { code: 'FS', title: 'Financial Statement Analysis', description: 'Analysis of financial performance', category: 'finance', key: true },
+  { code: 'BF', title: 'Budgeting & Forecasting', description: 'Planning and forward-looking analysis', category: 'finance', key: true },
+  { code: 'VA', title: 'Variance Analysis', description: 'Budget vs actual analysis', category: 'finance', key: true },
+  { code: 'FM', title: 'Financial Modelling', description: 'Forecasting, valuation and scenarios', category: 'finance', key: true },
+  { code: 'CO', title: 'Costing', description: 'Cost analysis and cost management', category: 'finance', key: true },
+  { code: 'FN', title: 'Financial Management', description: 'Financial planning and management', category: 'finance', key: true },
+  { code: 'MR', title: 'MIS & Management Reporting', description: 'Recurring performance and MIS reports', category: 'finance' },
+  { code: 'KP', title: 'KPI Analysis', description: 'Tracking performance against targets', category: 'finance' },
+  { code: 'MC', title: 'Month-End Close', description: 'Journals, accruals, prepayments and reclassifications', category: 'finance' },
+  { code: 'RC', title: 'Reconciliations', description: 'Bank and balance sheet reconciliations', category: 'finance' },
+  // technical
+  { code: 'XL', title: 'Microsoft Excel', description: 'Financial analysis, dashboards and modelling', category: 'technical', key: true },
+  { code: 'SAP', title: 'SAP FICO (S/4HANA)', description: 'GL, month-end close and reconciliations', category: 'technical', key: true },
+  { code: 'BI', title: 'Power BI', description: 'Interactive dashboards and reporting', category: 'technical', key: true },
+  { code: 'AI', title: 'Artificial Intelligence', description: 'AI tools for research, analysis and productivity', category: 'technical', key: true },
+  { code: 'BL', title: 'BlackLine', description: 'Reconciliation and close management', category: 'technical' },
+  { code: 'ZB', title: 'Zoho Books', description: 'Cloud accounting', category: 'technical' },
+  { code: 'TP', title: 'Tally Prime', description: 'Accounting and bookkeeping', category: 'technical' },
+  // soft
+  { code: 'AT', title: 'Analytical Thinking', description: 'Structured financial problem solving', category: 'soft', key: true },
+  { code: 'SM', title: 'Stakeholder Management', description: 'Working with client and business stakeholders', category: 'soft' },
+  { code: 'TM', title: 'Time Management', description: 'Delivering to close and reporting deadlines', category: 'soft' },
+  { code: 'AD', title: 'Adaptability', description: 'Learning new processes and tools quickly', category: 'soft' },
+  { code: 'DT', title: 'Attention to Detail', description: 'Accuracy in numbers and reporting', category: 'soft' },
+  // other
+  { code: 'KT', title: 'Knowledge Transfer', description: 'Capturing and documenting client processes', category: 'other' },
+  { code: 'SOP', title: 'SOP Documentation', description: 'Writing clear standard operating procedures', category: 'other' },
+  { code: 'IA', title: 'Internal Audit', description: 'Verification, vouching and audit reporting', category: 'other' },
 ]
 
 // --- Experience -------------------------------------------------------------
 
 export const experience = [
   {
-    role: 'Process Associate',
-    company: 'Tata Consultancy Services Limited',
+    role: 'Process Associate, FP&A & R2R',
+    company: 'Tata Consultancy Services',
     period: 'Feb 2024 – Jan 2025',
-    summary:
-      'FP&A and finance operations for a UK-based client — financial reporting, management reporting and MIS for business performance review.',
+    summary: 'UK-based client',
     points: [
-      'Prepared and analysed actual vs budget reports, ran variance analysis, and investigated the drivers behind revenue and expense movements for management review.',
-      'Analysed revenue and expense trends and produced the recurring MIS and performance reporting that fed management decisions.',
-      'Monitored financial and operational KPIs against targets and prior periods to surface performance gaps and the business drivers behind them.',
-      'Performed GL accounting through month-end close — journal entries, accruals, prepayments, depreciation and reclassifications.',
-      'Reconciled bank accounts by matching statements to SAP and book balances, investigating discrepancies and chasing open reconciling items to closure.',
-      'Developed SAP S/4HANA report variants and Excel-based improvements for recurring reconciliations, cutting manual processing time by 50%.',
-      'Led knowledge transfer sessions with client stakeholders covering processes, accounting requirements, controls and reporting procedures.',
+      'Prepared actual vs budget reports and analysed the key drivers of revenue and expense variances.',
+      'Delivered recurring MIS and performance reports with insights for management decisions.',
+      'Tracked financial and operational KPIs against targets and prior periods to identify performance gaps.',
+      'Handled month-end close: journal entries, accruals, prepayments, depreciation and reclassifications.',
+      'Reconciled bank accounts against SAP and book balances and resolved open items.',
+      'Cut manual reconciliation time by 50% using SAP S/4HANA report variants and Excel tools.',
+      'Led knowledge transfer sessions with client stakeholders.',
+      'Recognised: TCS town hall award for outstanding performance, management appreciation for automating bank reconciliation, BPS Torch Bearers Award.',
     ],
-    stack: ['SAP S/4HANA', 'Advanced Excel', 'Blackline'],
+    stack: ['SAP S/4HANA', 'Microsoft Excel', 'BlackLine'],
   },
   {
     role: 'Junior Executive',
     company: 'Smart Accountants',
     period: 'Jul 2022 – Aug 2023',
-    summary:
-      'End-to-end books, statutory compliance and internal audit across a portfolio of clients in multiple sectors.',
     points: [
-      'Processed daily financial transactions, keeping books accurate and compliant with organisational policy.',
-      'Wrote and documented Standard Operating Procedures to streamline workflows and remove repeated rework.',
-      'Prepared, posted and reviewed monthly accruals and journal entries, consistently meeting close deadlines.',
-      'Filed monthly GST returns for 80+ clients and income tax returns for 25+ clients across diverse sectors.',
-      'Conducted internal audits for manufacturing clients — physical verification of fixed assets and closing stock, and vouching of invoices and bills.',
-      'Drafted the audit observation reports presented to the audit committee each quarter.',
+      'Maintained books of accounts and processed daily financial transactions.',
+      'Prepared and posted monthly accruals and journal entries within close deadlines.',
+      'Wrote SOPs that streamlined workflows and reduced inefficiencies.',
+      'Conducted internal audits for manufacturing clients and drafted quarterly audit observation reports for the audit committee.',
+      'Handled statutory compliance, including GST.',
     ],
-    stack: ['Tally Prime & ERP 9', 'Zoho Books', 'Compu-Tax'],
+    stack: ['Tally Prime', 'Zoho Books'],
   },
 ]
 
 // --- Education --------------------------------------------------------------
 
-export const education = {
-  cma: {
-    title: 'Cost & Management Accountant',
-    board: 'ICMAI',
-    stages: [
-      { stage: 'CMA Final', when: 'June 2026', score: '51.63%' },
-      { stage: 'CMA Intermediate', when: 'December 2023', score: '56.62%' },
-      { stage: 'CMA Foundation', when: 'June 2020', score: '73%' },
-    ],
-    note: 'Scored 60+ across key papers at all three levels — and across every subject at Foundation.',
+export const education = [
+  {
+    title: 'Cost & Management Accountant (CMA)',
+    where: 'ICMAI',
+    when: 'Qualified June 2026',
   },
-  academic: [
-    { title: 'Bachelor of Commerce', where: 'SRM University', when: 'June 2022', score: 'CGPA 9.26' },
-    { title: 'Senior Secondary', where: 'HSC', when: 'March 2019', score: '89.5%' },
-    { title: 'Secondary', where: 'SSLC', when: 'March 2017', score: '88%' },
-  ],
-  certifications: [
-    { title: 'Tally ERP 9 & Microsoft Office', where: 'Neo Orange Technology', when: 'May 2019', score: 'Grade A' },
-    {
-      title: 'Junior Grade Typewriting (English), 30 WPM',
-      where: 'Government Technical Examinations',
-      when: 'February 2022',
-      score: 'First Class with Distinction',
-    },
-  ],
-}
+  {
+    title: 'Bachelor of Commerce',
+    where: 'SRM University',
+    when: '2022',
+    score: 'CGPA 9.26',
+  },
+]
 
 // --- About ------------------------------------------------------------------
 
 export const about = {
   title: 'About',
   paragraphs: [
-    'I am a Cost & Management Accountant based in Chennai, with two years across FP&A, financial reporting and record-to-report. At TCS I supported a UK-based client through the full monthly cycle — actual versus budget, variance analysis, KPI tracking, GL close and bank reconciliation — and led the knowledge transfer sessions that captured how all of it was meant to work.',
-    'Before that, at Smart Accountants, I ran books and statutory compliance for a portfolio of clients: monthly GST for 80+ of them, income tax for 25+, internal audits for manufacturing clients down to physically verifying fixed assets and closing stock, and the quarterly observation reports that went to the audit committee.',
-    'The part I enjoy most is the second question. A variance is only interesting once you know which department, which region and which driver produced it — so I tend to build the report that can answer that before anyone has to ask.',
+    "I'm a CMA-qualified finance professional with experience across FP&A, record to report and accounting. At TCS, I supported a UK-based client with actual vs budget analysis, variance commentary, MIS reporting, KPI tracking and month-end close. I enjoy finding the story behind the numbers and presenting it in a way that helps people decide.",
   ],
-  ahead: {
-    title: 'Where I am headed',
-    items: [
-      {
-        n: '01',
-        title: 'Complete CMA Final',
-        body: 'Finishing the ICMAI Final qualification and carrying the costing and strategic performance management syllabus straight into the day job.',
-      },
-      {
-        n: '02',
-        title: 'Deepen FP&A and analytics',
-        body: 'Moving further into planning, forecasting and business partnering — and pairing it with Power BI so the reporting pack answers questions instead of just presenting them.',
-      },
-      {
-        n: '03',
-        title: 'Own a reporting cycle end to end',
-        body: 'An FP&A role where I hold the close, the pack and the commentary for a business unit, and the numbers going to management are ones I stand behind.',
-      },
-    ],
-  },
+  experienceTitle: "Where I've worked",
+  experienceNote: 'Two years across FP&A, record to report and accounting.',
+  educationTitle: 'Education',
+  educationNote: 'The qualification and the degree behind it.',
+}
+
+// --- Vision -----------------------------------------------------------------
+
+export const vision = {
+  title: 'Vision',
+  lede: 'Where I am headed',
+  body: "I want to grow into a finance business partner: someone who doesn't just report the numbers, but explains what's driving them and helps leaders act on it. My focus is on building strong FP&A skills in financial analysis, performance reporting and data-driven insight, using tools like Excel and Power BI to make finance faster, clearer and more useful to the business.",
+  items: [
+    {
+      n: '01',
+      title: 'Deepen FP&A and analytics',
+      body: 'Moving further into planning, forecasting and business partnering — and pairing it with Power BI so the reporting pack answers questions instead of just presenting them.',
+    },
+    {
+      n: '02',
+      title: 'Own a reporting cycle end to end',
+      body: 'An FP&A role where I hold the close, the pack and the commentary for a business unit, and the numbers going to management are ones I stand behind.',
+    },
+  ],
 }
 
 export const contact = {

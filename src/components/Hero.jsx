@@ -22,21 +22,20 @@ export function Hero() {
     <section className="hero" id="top">
       <div className="shell hero__inner">
         <div className="hero__copy">
-          <p className="eyebrow">
-            {person.role} · {person.discipline}
-          </p>
+          <p className="eyebrow">{person.discipline}</p>
 
           <h1 className="hero__name">
             <span className="hero__name--harini">Harini</span> Raamiya&nbsp;<span className="hero__name--bala">Bala</span>
+            <span className="hero__cred">, {person.credential}</span>
           </h1>
 
           <p className="hero__headline">{person.headline}</p>
           <p className="hero__intro">{hl(person.intro)}</p>
 
           <div className="hero__actions">
-            <a className="btn btn--primary" href="#work">
+            <a className="btn btn--primary" href="#projects">
               <Icon name="grid" />
-              Projects
+              View projects
             </a>
             <a
               className="btn"
@@ -46,18 +45,9 @@ export function Hero() {
               <Icon name="download" />
               Download résumé
             </a>
-            <a className="btn btn--ghost" href={`mailto:${person.email}`}>
+            <a className="btn btn--ghost" href="#contact">
               <Icon name="mail" />
-              Email
-            </a>
-            <a
-              className="btn btn--ghost"
-              href={person.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="linkedin" />
-              LinkedIn
+              Connect with me
             </a>
           </div>
 

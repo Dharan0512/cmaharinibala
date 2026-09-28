@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Icon } from './Icon.jsx'
 import { hl } from '../lib/highlight.jsx'
-import { experience } from '../data/content.js'
+import { about, experience } from '../data/content.js'
 import './Experience.css'
 
 function Role({ role, expanded, onToggle, id }) {
@@ -13,9 +13,9 @@ function Role({ role, expanded, onToggle, id }) {
 
       <div className="role__body">
         <p className="role__period num">{role.period}</p>
-        <h3>{role.role}</h3>
+        <h4>{role.role}</h4>
         <p className="role__company">{role.company}</p>
-        <p className="role__summary">{hl(role.summary)}</p>
+        {role.summary && <p className="role__summary">{hl(role.summary)}</p>}
 
         <ul className="role__stack">
           {role.stack.map((s) => (
@@ -59,31 +59,23 @@ export function Experience() {
     })
 
   return (
-    <section className="section section--alt" id="experience">
-      <div className="shell">
-        <div className="section-head reveal">
-          <div>
-            <p className="eyebrow">Experience</p>
-            <h2>Where I&rsquo;ve worked</h2>
-          </div>
-          <p className="section-lede">
-            Two years across FP&amp;A and record-to-report, and the compliance
-            grounding underneath it.
-          </p>
-        </div>
-
-        <ol className="timeline">
-          {experience.map((role, i) => (
-            <Role
-              key={role.company}
-              role={role}
-              id={`role-${i}`}
-              expanded={open.has(i)}
-              onToggle={() => toggle(i)}
-            />
-          ))}
-        </ol>
+    <div className="about__block">
+      <div className="about__sub reveal">
+        <h3>{about.experienceTitle}</h3>
+        <p>{about.experienceNote}</p>
       </div>
-    </section>
+
+      <ol className="timeline">
+        {experience.map((role, i) => (
+          <Role
+            key={role.company}
+            role={role}
+            id={`role-${i}`}
+            expanded={open.has(i)}
+            onToggle={() => toggle(i)}
+          />
+        ))}
+      </ol>
+    </div>
   )
 }

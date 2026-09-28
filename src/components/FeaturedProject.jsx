@@ -16,7 +16,7 @@ export function FeaturedProject({ theme }) {
   }
 
   return (
-    <section className="section work" id="work">
+    <section className="section work" id="projects">
       <div className="shell">
         <div className="section-head reveal">
           <div>
@@ -34,6 +34,8 @@ export function FeaturedProject({ theme }) {
             </li>
           ))}
         </ul>
+
+        <p className="work__dataset num reveal">{project.dataset}</p>
 
         {/* Live demo ---------------------------------------------------- */}
         <figure className="demo reveal">
@@ -73,25 +75,16 @@ export function FeaturedProject({ theme }) {
         <div className="work__actions reveal">
           <a
             className="btn btn--primary"
-            href={project.artifactUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="external" />
-            Go live
-          </a>
-          <a
-            className="btn"
             href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Icon name="expand" />
-            Open full screen
+            View live dashboard
           </a>
           <a className="btn" href={project.excelUrl} download={project.excelFileName}>
             <Icon name="sheet" />
-            Download the Excel model
+            Download Excel model
           </a>
         </div>
 
@@ -105,27 +98,22 @@ export function FeaturedProject({ theme }) {
                 </span>
                 <div>
                   <h3>{block.heading}</h3>
-                  <p>{hl(block.body)}</p>
+                  {block.body && <p>{hl(block.body)}</p>}
+                  {block.bullets && (
+                    <ul className="work__tracks">
+                      {block.bullets.map((b) => (
+                        <li key={b}>{hl(b)}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </article>
             ))}
           </div>
 
           <aside className="work__aside reveal">
-            <div className="card work__facts">
-              <h3>At a glance</h3>
-              <dl>
-                {project.notes.map((n) => (
-                  <div key={n.k}>
-                    <dt>{n.k}</dt>
-                    <dd>{hl(n.v)}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
             <div className="card work__tools">
-              <h3>What it took</h3>
+              <h3>Skills used</h3>
               <ul>
                 {project.tools.map((t) => (
                   <li key={t}>{t}</li>
@@ -133,6 +121,28 @@ export function FeaturedProject({ theme }) {
               </ul>
             </div>
           </aside>
+        </div>
+
+        {/* Insights ----------------------------------------------------- */}
+        <div className="work__findings">
+          <div className="about__sub reveal">
+            <h3>Key insights from the analysis</h3>
+            <p>What the numbers actually said once the filters came off.</p>
+          </div>
+
+          <ol className="work__insights">
+            {project.insights.map((item) => (
+              <li key={item.n} className="work__insight card reveal">
+                <span className="work__n num" aria-hidden="true">
+                  {item.n}
+                </span>
+                <div>
+                  <b>{item.title}</b>
+                  <p>{hl(item.body)}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
