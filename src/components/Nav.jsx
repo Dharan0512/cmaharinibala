@@ -41,9 +41,14 @@ export function Nav({ theme, onToggleTheme }) {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={active === item.id ? 'is-active' : undefined}
+              className={
+                [item.accent && 'is-accent', active === item.id && 'is-active']
+                  .filter(Boolean)
+                  .join(' ') || undefined
+              }
               aria-current={active === item.id ? 'true' : undefined}
             >
+              {item.accent && <Icon name="download" className="site-nav__linkIcon" />}
               {item.label}
             </a>
           ))}
@@ -84,9 +89,13 @@ export function Nav({ theme, onToggleTheme }) {
         <div className="site-nav__sheet" onClick={() => setOpen(false)}>
           <nav aria-label="Sections">
             {nav.map((item) => (
-              <a key={item.id} href={`#${item.id}`}>
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={item.accent ? 'is-accent' : undefined}
+              >
                 {item.label}
-                <Icon name="arrow" />
+                <Icon name={item.accent ? 'download' : 'arrow'} />
               </a>
             ))}
             <a href="#contact">

@@ -12,7 +12,6 @@ export const site = {
 export const person = {
   name: 'Harini Raamiya Bala',
   shortName: 'Harini',
-  credential: 'CMA',
   initials: 'HB',
   role: 'Cost & Management Accountant',
   discipline: 'FP&A · Financial Analysis · Record to Report · Management Reporting',
@@ -103,12 +102,26 @@ export const heroStats = [
   { value: 9.26, decimals: 2, label: 'B.Com CGPA, SRM' },
 ]
 
+// Order here drives the nav, the footer links and the scroll-spy, and must match
+// the order the sections are rendered in App.jsx.
 export const nav = [
+  { id: 'resume', label: 'Résumé', accent: true },
   { id: 'projects', label: 'Projects' },
   { id: 'capabilities', label: 'Capabilities' },
   { id: 'about', label: 'About' },
   { id: 'vision', label: 'Vision' },
 ]
+
+export const resume = {
+  title: 'The one-pager',
+  lede: 'Read it here, or take the PDF with you.',
+  highlights: [
+    'FP&A · budgeting, forecasting, variance analysis',
+    'Record to report · month-end close, accruals, reconciliations',
+    'SAP FICO S/4HANA · report variants, GL, bank reconciliation',
+    'Microsoft Excel & Power BI · dashboards, modelling, reporting',
+  ],
+}
 
 // --- Featured project -------------------------------------------------------
 

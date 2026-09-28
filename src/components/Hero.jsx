@@ -26,7 +26,6 @@ export function Hero() {
 
           <h1 className="hero__name">
             <span className="hero__name--harini">Harini</span> Raamiya&nbsp;<span className="hero__name--bala">Bala</span>
-            <span className="hero__cred">, {person.credential}</span>
           </h1>
 
           <p className="hero__headline">{person.headline}</p>

@@ -126,6 +126,51 @@
   transform: translateX(-50%);
 }
 
+/* the résumé link leads the nav, so it carries a tinted pill and an icon */
+
+.site-nav__links a.is-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 0.35rem;
+  padding-inline: 0.75rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.site-nav__links a.is-accent:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* the pill already reads as active; the dot would sit on its border */
+.site-nav__links a.is-accent.is-active::after {
+  display: none;
+}
+
+.site-nav__links a.is-accent.is-active {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.site-nav__linkIcon {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-nav__sheet a.is-accent {
+  color: var(--accent);
+}
+
 /* actions ----------------------------------------------------------------- */
 
 .site-nav__actions {
