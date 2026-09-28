@@ -212,6 +212,7 @@ export const skills = [
       { name: 'Cost control & analysis' },
       { name: 'Revenue & expense analysis' },
       { name: 'KPI analysis' },
+      { name: 'Financial insights' },
       { name: 'Month-end close & accruals' },
       { name: 'Management reporting' },
       { name: 'Business partnering' },
