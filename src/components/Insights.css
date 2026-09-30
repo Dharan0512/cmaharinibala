@@ -1,0 +1,278 @@
+.ins {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+/* the list ---------------------------------------------------------------- */
+
+.ins__list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--line);
+  min-width: 0;
+}
+
+/* The travelling indicator. Top/height are read on desktop, left/width once
+   the list turns horizontal — one element, two orientations. */
+.ins__bar {
+  position: absolute;
+  left: -1px;
+  top: var(--bar-top, 0);
+  width: 2px;
+  height: var(--bar-height, 0);
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent);
+  opacity: 0;
+  transition:
+    top var(--t-slow) var(--ease),
+    height var(--t-slow) var(--ease),
+    opacity var(--t-mid) var(--ease);
+}
+
+.ins__list.is-measured .ins__bar {
+  opacity: 1;
+}
+
+.ins__tab {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: baseline;
+  width: 100%;
+  padding: 0.62rem 0.7rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    color var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease);
+}
+
+.ins__tab:hover {
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+
+.ins__tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ins__tab[aria-selected='true'] {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+.ins__tabN {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.ins__tab[aria-selected='true'] .ins__tabN {
+  color: var(--accent);
+}
+
+.ins__tabT {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+/* the panel --------------------------------------------------------------- */
+
+.ins__stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: clamp(1.25rem, 2.6vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-lift);
+  min-width: 0;
+}
+
+.ins__panels {
+  display: grid;
+  flex: 1;
+}
+
+.ins__panel {
+  grid-area: 1 / 1;
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ins__panel:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: var(--radius);
+}
+
+.ins__panel.is-on {
+  opacity: 1;
+  visibility: visible;
+  animation: ins-in var(--t-slow) var(--ease) both;
+}
+
+@keyframes ins-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ins__n {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.ins__panel h5 {
+  font-size: var(--step-1);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+  text-wrap: balance;
+}
+
+.ins__panel p {
+  color: var(--ink-2);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  max-width: var(--measure);
+}
+
+/* controls ---------------------------------------------------------------- */
+
+.ins__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.ins__count {
+  margin-left: auto;
+  font-size: 0.76rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.ins__nav {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition:
+    border-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease);
+}
+
+.ins__nav:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: var(--surface-2);
+  color: var(--accent);
+}
+
+.ins__nav:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ins__nav svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ins__nav--prev svg {
+  transform: rotate(180deg);
+}
+
+/* stacked ----------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .ins {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .ins__list {
+    flex-direction: row;
+    gap: 0.3rem;
+    padding-left: 0;
+    padding-bottom: 0.7rem;
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .ins__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ins__bar {
+    top: auto;
+    bottom: -1px;
+    left: var(--bar-left, 0);
+    width: var(--bar-width, 0);
+    height: 2px;
+    transition:
+      left var(--t-slow) var(--ease),
+      width var(--t-slow) var(--ease);
+  }
+
+  .ins__tab {
+    display: flex;
+    align-items: center;
+    width: auto;
+    flex: none;
+    max-width: 14rem;
+    gap: 0.5rem;
+    scroll-snap-align: start;
+  }
+
+  .ins__tabT {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -57,16 +57,6 @@ export function Hero() {
             <a href={`mailto:${person.email}`}>{person.email}</a>
           </p>
         </div>
-
-        <figure className="hero__portrait">
-          <img
-            src={person.photo}
-            alt={`${person.name}, ${person.role}`}
-            width="900"
-            height="1181"
-            fetchPriority="high"
-          />
-        </figure>
       </div>
 
       <div className="shell">

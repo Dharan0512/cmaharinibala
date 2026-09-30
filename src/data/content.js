@@ -23,7 +23,7 @@ export const person = {
   linkedinLabel: 'in/harini12',
   resume: '/Harini_Raamiya_Bala.pdf',
   resumeFileName: 'Harini-Raamiya-Bala-CMA-Resume.pdf',
-  photo: '/harini.jpg',
+  avatar: '/harini-avatar.jpg',
   headline:
     'I turn numbers into narratives, insights into strategy, and financial data into smarter decisions.',
   intro:
@@ -123,90 +123,196 @@ export const resume = {
   ],
 }
 
-// --- Featured project -------------------------------------------------------
+// --- Featured projects ------------------------------------------------------
+// The section header, then one entry per project. Each project renders the same
+// way: metric strip, live demo, case study, insights. Add a third by appending
+// to `projects` — drop its dashboard into public/projects/ first so the iframe
+// stays same-origin and keeps following the site's dark/light toggle.
 
-export const project = {
+export const work = {
   eyebrow: 'Selected work',
-  title: 'Finance KPI Dashboard',
-  kicker:
-    'An interactive finance dashboard that tracks revenue, profit, cost and budget performance across regions, departments, channels and customers.',
-  demoUrl: '/projects/finance-kpi-dashboard.html',
-  excelUrl: '/projects/Finance-KPI-Dashboard.xlsm',
-  excelFileName: 'Finance-KPI-Dashboard.xlsm',
-  dataset:
-    '500 daily transactions · Jan 2025 – May 2026 · 4 regions · 6 departments · 3 sales channels · 5 product categories · 10 expense categories',
-  metrics: [
-    { value: '₹8.51 Cr', label: 'Revenue analysed' },
-    { value: '51.0%', label: 'Profit margin' },
-    { value: '+1.0%', label: 'Profit vs budget' },
-    { value: '243', label: 'Customers tracked' },
-  ],
-  narrative: [
-    {
-      heading: 'The problem',
-      body: 'A static monthly report shows what happened, but not why. Management needs to see which region, department or cost line is driving performance, and whether results are genuinely beating the budget.',
-    },
-    {
-      heading: 'What I built',
-      body: 'A macro-enabled Excel dashboard on a single clean data table, with 7 pivot tables, 6 charts and Month and Region slicers. Every KPI tile and chart updates together when a filter changes. I also rebuilt it for the web so anyone can open it on any device.',
-    },
-    {
-      heading: 'What it tracks',
-      bullets: [
-        'Revenue, expenses and profit trend by month',
-        'Actual vs budget profit across revenue, gross profit, EBITDA, operating expenses and net profit',
-        'Performance by region, department and sales channel',
-        'Expense mix across 10 cost categories',
-        'Top 10 customers by revenue',
-      ],
-    },
-  ],
-  insights: [
-    {
-      n: '01',
-      title: 'Budget beaten on both lines',
-      body: 'Revenue came in 0.2% above budget and profit 1.0% above, on a healthy 51% margin.',
-    },
-    {
-      n: '02',
-      title: 'Monthly margins swing but revenue stays steady',
-      body: 'Monthly revenue held between ₹44 L and ₹57 L, while margin moved from 43.9% (Jul 2025) to 56.9% (Jun 2025). The swings come from costs, not sales.',
-    },
-    {
-      n: '03',
-      title: 'West leads on size, East on efficiency',
-      body: 'West brings in 28% of revenue (₹2.40 Cr), but East earns the best margin at 53.1%. South is the only region below its revenue budget (−0.5%).',
-    },
-    {
-      n: '04',
-      title: 'Operations missed revenue but beat profit',
-      body: 'It is the largest department (₹1.48 Cr) and took the biggest revenue-budget miss (−1.6%), yet it still beat its profit budget — on the best cost control of any department (53.9% margin).',
-    },
-    {
-      n: '05',
-      title: 'Three cost lines drive half the spend',
-      body: 'Salaries (27%), marketing (13%) and rent (12%) make up 52% of total expenses, so that is where cost control has the most effect.',
-    },
-    {
-      n: '06',
-      title: 'Low customer concentration risk',
-      body: 'The top 10 customers contribute only 11% of revenue across 243 customers, so no single account can move the results.',
-    },
-    {
-      n: '07',
-      title: 'Margins are improving',
-      body: 'The 2026 year-to-date margin is 52.0%, up from 50.6% in 2025.',
-    },
-  ],
-  tools: [
-    'Microsoft Excel',
-    'Pivot tables & slicers',
-    'Excel macros',
-    'Variance analysis',
-    'KPI analysis',
-    'Dashboard design',
-  ],
+  title: 'Finance dashboards',
+  lede: 'Two dashboards built from raw transaction data — one on operating KPIs, one on the P&L itself. Both run live on this page: change a filter and every tile, chart and row recalculates.',
 }
+
+export const projects = [
+  {
+    id: 'finance-kpi-dashboard',
+    title: 'Finance KPI Dashboard',
+    kicker:
+      'An interactive finance dashboard that tracks revenue, profit, cost and budget performance across regions, departments, channels and customers.',
+    demoUrl: '/projects/finance-kpi-dashboard.html',
+    demoLabel: 'finance-kpi-dashboard',
+    demoCaption:
+      'This is the real dashboard, running here on the page — change the year, region or month filters and every tile, chart and row recalculates.',
+    excelUrl: '/projects/Finance-KPI-Dashboard.xlsm',
+    excelFileName: 'Finance-KPI-Dashboard.xlsm',
+    dataset:
+      '500 daily transactions · Jan 2025 – May 2026 · 4 regions · 6 departments · 3 sales channels · 5 product categories · 10 expense categories',
+    metrics: [
+      { value: '₹8.51 Cr', label: 'Revenue analysed' },
+      { value: '51.0%', label: 'Profit margin' },
+      { value: '+1.0%', label: 'Profit vs budget' },
+      { value: '243', label: 'Customers tracked' },
+    ],
+    narrative: [
+      {
+        heading: 'The problem',
+        body: 'A static monthly report shows what happened, but not why. Management needs to see which region, department or cost line is driving performance, and whether results are genuinely beating the budget.',
+      },
+      {
+        heading: 'What I built',
+        body: 'A macro-enabled Excel dashboard on a single clean data table, with 7 pivot tables, 6 charts and Month and Region slicers. Every KPI tile and chart updates together when a filter changes. I also rebuilt it for the web so anyone can open it on any device.',
+      },
+      {
+        heading: 'What it tracks',
+        bullets: [
+          'Revenue, expenses and profit trend by month',
+          'Actual vs budget profit across revenue, gross profit, EBITDA, operating expenses and net profit',
+          'Performance by region, department and sales channel',
+          'Expense mix across 10 cost categories',
+          'Top 10 customers by revenue',
+        ],
+      },
+    ],
+    insights: [
+      {
+        n: '01',
+        title: 'Budget beaten on both lines',
+        body: 'Revenue came in 0.2% above budget and profit 1.0% above, on a healthy 51% margin.',
+      },
+      {
+        n: '02',
+        title: 'Monthly margins swing but revenue stays steady',
+        body: 'Monthly revenue held between ₹44 L and ₹57 L, while margin moved from 43.9% (Jul 2025) to 56.9% (Jun 2025). The swings come from costs, not sales.',
+      },
+      {
+        n: '03',
+        title: 'West leads on size, East on efficiency',
+        body: 'West brings in 28% of revenue (₹2.40 Cr), but East earns the best margin at 53.1%. South is the only region below its revenue budget (−0.5%).',
+      },
+      {
+        n: '04',
+        title: 'Operations missed revenue but beat profit',
+        body: 'It is the largest department (₹1.48 Cr) and took the biggest revenue-budget miss (−1.6%), yet it still beat its profit budget — on the best cost control of any department (53.9% margin).',
+      },
+      {
+        n: '05',
+        title: 'Three cost lines drive half the spend',
+        body: 'Salaries (27%), marketing (13%) and rent (12%) make up 52% of total expenses, so that is where cost control has the most effect.',
+      },
+      {
+        n: '06',
+        title: 'Low customer concentration risk',
+        body: 'The top 10 customers contribute only 11% of revenue across 243 customers, so no single account can move the results.',
+      },
+      {
+        n: '07',
+        title: 'Margins are improving',
+        body: 'The 2026 year-to-date margin is 52.0%, up from 50.6% in 2025.',
+      },
+    ],
+    tools: [
+      'Microsoft Excel',
+      'Pivot tables & slicers',
+      'Excel macros',
+      'Variance analysis',
+      'KPI analysis',
+      'Dashboard design',
+    ],
+  },
+  {
+    id: 'pl-dashboard',
+    title: 'P&L Dashboard',
+    kicker:
+      'A profit and loss dashboard that walks revenue all the way down to net profit, then splits every line by region, business unit and month — with the transactions behind each number one scroll away.',
+    demoUrl: '/projects/pl-dashboard.html',
+    demoLabel: 'pl-dashboard',
+    demoCaption:
+      'The full P&L, live on the page — pick a region, business unit or month and the waterfall, the KPI tiles, the margin trend and all 499 transaction rows recalculate together.',
+    excelUrl: '/projects/PL-Dashboard.xlsm',
+    excelFileName: 'PL-Dashboard.xlsm',
+    dataset:
+      '499 transactions · Jan – Dec 2024 · 4 regions · 4 business units · 20 products · 220 customers',
+    metrics: [
+      { value: '₹14.92 Cr', label: 'Revenue analysed' },
+      { value: '42.5%', label: 'Gross margin' },
+      { value: '16.8%', label: 'Net margin' },
+      { value: '+8.7%', label: 'Revenue vs budget' },
+    ],
+    narrative: [
+      {
+        heading: 'The problem',
+        body: 'A P&L statement gives one number per line and stops there. It does not show where the gap between revenue and net profit opens up, which region is carrying the margin, or which business unit is quietly losing it — the questions management actually asks in the review meeting.',
+      },
+      {
+        heading: 'What I built',
+        body: 'A macro-enabled Excel workbook built on one clean transaction table, with 10 pivot tables, 9 charts and Year, Month and Region slicers feeding a single dashboard sheet. A waterfall runs revenue through COGS, operating expenses, interest and tax down to net profit, and the same rows drive the margin trend, budget versus actual and the regional and business unit splits. I then rebuilt it for the web, where the filters are shared across every chart, so they all answer the same question at the same time.',
+      },
+      {
+        heading: 'What it tracks',
+        bullets: [
+          'Revenue to net profit as a waterfall: gross profit, EBITDA, interest and tax',
+          'Monthly revenue, gross profit and net profit trend, with net profit margin by month',
+          'Actual vs budget across revenue, gross profit, operating expenses and net profit',
+          'Revenue, gross profit and net profit by region and by business unit',
+          'Operating expense trend and the top 10 customers by revenue',
+          'All 499 transaction rows, sortable on any column',
+        ],
+      },
+    ],
+    insights: [
+      {
+        n: '01',
+        title: 'Every P&L line came in ahead of plan',
+        body: 'Revenue, gross profit and net profit each landed 8.7% above budget, and operating expenses ran 4.8% under — favourable on both sides of the P&L.',
+      },
+      {
+        n: '02',
+        title: 'Where each ₹100 of revenue goes',
+        body: 'COGS takes ₹57.50 and operating expenses ₹20.00, leaving ₹22.50 of EBITDA. Interest and tax take ₹5.70, so ₹16.80 lands as net profit.',
+      },
+      {
+        n: '03',
+        title: 'Revenue is steady, margin is not',
+        body: 'Monthly revenue stayed inside ₹1.17 Cr – ₹1.33 Cr all year, while net margin ranged from 15.2% (Apr) to 18.5% (Dec). The result is set by costs, not by sales.',
+      },
+      {
+        n: '04',
+        title: 'Operating expenses are the swing factor',
+        body: 'Monthly opex moved between ₹23.6 L and ₹26.4 L. December ran the leanest and returned the best margin of the year; September spent the most and gave back a point of margin on record revenue.',
+      },
+      {
+        n: '05',
+        title: 'The second half outperformed the first',
+        body: 'Net margin improved from 16.5% in H1 to 17.1% in H2 on almost flat revenue (₹7.35 Cr to ₹7.56 Cr) — an efficiency gain, not a growth one.',
+      },
+      {
+        n: '06',
+        title: 'North sells the most, but margin barely moves',
+        body: 'North contributes 29.7% of revenue against South at 21.7%, yet gross margin sits between 42.3% and 42.7% in every region and net margin within one point (16.4% – 17.3%). Scale is not buying efficiency here.',
+      },
+      {
+        n: '07',
+        title: 'No customer concentration risk',
+        body: 'The top 10 of 220 customers account for just 7.3% of revenue, so no single account can move the P&L.',
+      },
+      {
+        n: '08',
+        title: 'One transaction in twenty loses money',
+        body: '26 of 499 transactions closed below the line — ₹44.3 L of revenue returning −₹3.1 L of net profit. Small enough to absorb, specific enough to go and fix.',
+      },
+    ],
+    tools: [
+      'Microsoft Excel',
+      'Pivot tables & slicers',
+      'P&L analysis',
+      'Variance analysis',
+      'Margin analysis',
+      'Dashboard design',
+    ],
+  },
+]
 
 // --- Capabilities -----------------------------------------------------------
 // One flat list. `key` flags the cards shown under "Key Skills"; every other tab

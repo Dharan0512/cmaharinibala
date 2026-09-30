@@ -2,6 +2,69 @@
   margin-top: 0.85rem;
 }
 
+/* project header ---------------------------------------------------------- */
+
+/* Anchor targets sit under the sticky nav, so offset the scroll position. */
+.work__project {
+  scroll-margin-top: calc(var(--nav-h) + 1.25rem);
+}
+
+.work__project + .work__project {
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+
+.work__projectHead {
+  margin-bottom: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.work__count {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.work__projectHead h3 {
+  font-size: var(--step-2);
+  letter-spacing: -0.02em;
+}
+
+.work__projectHead .work__kicker {
+  margin-top: 0.7rem;
+  font-size: var(--step-0);
+}
+
+/* jump links -------------------------------------------------------------- */
+
+.work__jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.work__jump a {
+  padding: 0.38rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition:
+    border-color var(--t-mid) var(--ease),
+    color var(--t-mid) var(--ease);
+}
+
+.work__jump a:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  color: var(--ink);
+}
+
 /* metric strip ------------------------------------------------------------ */
 
 .work__metrics {
@@ -198,7 +261,7 @@
   padding-top: 0.28rem;
 }
 
-.work__block h3 {
+.work__block h4 {
   font-size: var(--step-1);
   margin-bottom: 0.5rem;
 }
@@ -221,7 +284,7 @@
   padding: 1.1rem 1.2rem 1.25rem;
 }
 
-.work__aside h3 {
+.work__aside h4 {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -273,47 +336,25 @@
 
 /* insights ---------------------------------------------------------------- */
 
+.work__sub {
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.work__sub h4 {
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.work__sub p {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
 .work__findings {
   margin-top: clamp(2.75rem, 6vw, 4.5rem);
-}
-
-.work__insights {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 0.75rem;
-}
-
-.work__insight {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.9rem;
-  align-items: start;
-  padding: 1.1rem 1.2rem 1.25rem;
-  transition:
-    border-color var(--t-mid) var(--ease),
-    transform var(--t-mid) var(--ease),
-    box-shadow var(--t-mid) var(--ease);
-}
-
-.work__insight:hover {
-  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
-  transform: translateY(-2px);
-  box-shadow: var(--glow-hover);
-}
-
-/* :not(.kw) — hl() emits <b class="kw"> inline, which must not become a block */
-.work__insight b:not(.kw) {
-  display: block;
-  font-size: 0.98rem;
-  font-weight: 650;
-  letter-spacing: -0.015em;
-  margin-bottom: 0.35rem;
-}
-
-.work__insight p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--ink-2);
 }
 
 @media (max-width: 900px) {

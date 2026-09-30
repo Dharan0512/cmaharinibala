@@ -27,9 +27,14 @@ export function Nav({ theme, onToggleTheme }) {
     <header className={`site-nav${progress > 0.004 ? ' is-stuck' : ''}`}>
       <div className="site-nav__bar shell">
         <a className="brand" href="#top" onClick={() => setOpen(false)}>
-          <span className="brand__mark num" aria-hidden="true">
-            {person.initials}
-          </span>
+          <img
+            className="brand__photo"
+            src={person.avatar}
+            alt=""
+            width="160"
+            height="160"
+            fetchPriority="high"
+          />
           <span className="brand__text">
             <b>{person.name}</b>
             <span>{person.role}</span>
