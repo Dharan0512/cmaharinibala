@@ -1,13 +1,75 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Icon } from './Icon.jsx'
 import { hl } from '../lib/highlight.jsx'
 import { Insights } from './Insights.jsx'
 import { syncFrame } from '../hooks/useTheme.js'
+import { useProjectRoute } from '../hooks/useProjectRoute.js'
 import { projects, work } from '../data/content.js'
 import './FeaturedProject.css'
 
-/** One project: metric strip, live demo, case study, insights. */
-function ProjectCase({ project, theme, index, total }) {
+/** The grid entry: enough of the numbers to be worth a click, and no more. */
+function ProjectCard({ project, index }) {
+  const [lead, ...rest] = project.metrics
+
+  return (
+    <li className="pcard reveal">
+      <a
+        className="pcard__open"
+        href={`#/project/${project.id}`}
+        aria-labelledby={`${project.id}-card-title`}
+      >
+        <div className="pcard__cover">
+          <span className="pcard__no num" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+
+          <div className="pcard__lead">
+            <b className="num">{lead.value}</b>
+            <span>{lead.label}</span>
+          </div>
+
+          <ul className="pcard__mini">
+            {rest.map((m) => (
+              <li key={m.label}>
+                <b className="num">{m.value}</b>
+                <span>{m.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="pcard__body">
+          <p className="pcard__kicker num">{project.tools.slice(0, 3).join(' · ')}</p>
+          <h3 id={`${project.id}-card-title`}>{project.title}</h3>
+          <p className="pcard__sum">{project.kicker}</p>
+          <span className="pcard__more">
+            View case study
+            <Icon name="arrow" />
+          </span>
+        </div>
+      </a>
+
+      <div className="pcard__foot">
+        <span className="pcard__live">
+          <i aria-hidden="true" />
+          Live dashboard
+        </span>
+        <a
+          className="pcard__out"
+          href={project.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open
+          <Icon name="external" />
+        </a>
+      </div>
+    </li>
+  )
+}
+
+/** One project in full: metric strip, live demo, case study, insights. */
+function ProjectCase({ project, theme, index, total, next, onClose }) {
   const frameRef = useRef(null)
   const [loaded, setLoaded] = useState(false)
 
@@ -21,7 +83,12 @@ function ProjectCase({ project, theme, index, total }) {
 
   return (
     <article className="work__project" id={project.id} aria-labelledby={titleId}>
-      <header className="work__projectHead reveal">
+      <header className="work__projectHead">
+        <a className="work__back" href="#projects" onClick={onClose}>
+          <Icon name="arrow" />
+          All projects
+        </a>
+
         <span className="work__count num">
           Project {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
         </span>
@@ -133,39 +200,65 @@ function ProjectCase({ project, theme, index, total }) {
 
         <Insights items={project.insights} idBase={project.id} />
       </div>
+
+      {next && (
+        <a className="work__next reveal" href={`#/project/${next.id}`}>
+          <span className="num">Up next</span>
+          <b>{next.title}</b>
+          <Icon name="arrow" />
+        </a>
+      )}
     </article>
   )
 }
 
 export function FeaturedProject({ theme }) {
+  const { openId, close } = useProjectRoute()
+  const index = projects.findIndex((p) => p.id === openId)
+  const open = index === -1 ? null : projects[index]
+  // Wraps round to the first, so the last case study still offers somewhere
+  // to go. With only one project there is nothing to point at.
+  const next = projects.length > 1 ? projects[(index + 1) % projects.length] : null
+
+  // Opening a case study from halfway down a card should start at its top.
+  useEffect(() => {
+    if (!openId) return
+    document.getElementById('projects')?.scrollIntoView({ block: 'start' })
+  }, [openId])
+
   return (
     <section className="section work" id="projects">
       <div className="shell">
-        <div className="section-head reveal">
-          <div>
-            <p className="eyebrow">{work.eyebrow}</p>
-            <h2>{work.title}</h2>
-            <p className="section-lede work__kicker">{work.lede}</p>
-          </div>
-
-          <nav className="work__jump" aria-label="Projects">
-            {projects.map((p) => (
-              <a key={p.id} href={`#${p.id}`}>
-                {p.title}
-              </a>
-            ))}
-          </nav>
-        </div>
-
-        {projects.map((p, i) => (
+        {open ? (
           <ProjectCase
-            key={p.id}
-            project={p}
+            project={open}
             theme={theme}
-            index={i}
+            index={index}
             total={projects.length}
+            next={next}
+            onClose={close}
           />
-        ))}
+        ) : (
+          <>
+            <div className="section-head reveal">
+              <div>
+                <p className="eyebrow">{work.eyebrow}</p>
+                <h2>{work.title}</h2>
+                <p className="section-lede work__kicker">{work.lede}</p>
+              </div>
+
+              <p className="work__tally num">
+                {String(projects.length).padStart(2, '0')} projects
+              </p>
+            </div>
+
+            <ul className="pgrid">
+              {projects.map((p, i) => (
+                <ProjectCard key={p.id} project={p} index={i} />
+              ))}
+            </ul>
+          </>
+        )}
       </div>
     </section>
   )

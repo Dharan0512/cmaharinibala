@@ -1,7 +1,7 @@
 import { Icon } from './Icon.jsx'
 import { hl } from '../lib/highlight.jsx'
 import { useCountUp } from '../hooks/useCountUp.js'
-import { heroStats, person } from '../data/content.js'
+import { focus, heroStats, person } from '../data/content.js'
 import './Hero.css'
 
 function Stat({ value, suffix = '', decimals = 0, label }) {
@@ -57,6 +57,37 @@ export function Hero() {
             <a href={`mailto:${person.email}`}>{person.email}</a>
           </p>
         </div>
+
+        <aside className="hero__focus" aria-labelledby="hero-focus-title">
+          <p className="hero__status">
+            <i aria-hidden="true" />
+            {focus.status}
+          </p>
+
+          <h2 className="hero__focusTitle" id="hero-focus-title">
+            {focus.title}
+          </h2>
+
+          <ul className="hero__areas">
+            {focus.areas.map((a) => (
+              <li key={a.n}>
+                <span className="hero__areaN num" aria-hidden="true">
+                  {a.n}
+                </span>
+                <div>
+                  <b>{a.title}</b>
+                  <p>{a.body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <p className="hero__systems">
+            {focus.systems.map((t) => (
+              <span key={t}>{t}</span>
+            ))}
+          </p>
+        </aside>
       </div>
 
       <div className="shell">

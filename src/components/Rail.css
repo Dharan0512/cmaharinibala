@@ -1,0 +1,95 @@
+.rail {
+  position: fixed;
+  right: 1.4rem;
+  top: 50%;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(10px, -50%);
+  transition:
+    opacity var(--t-slow) var(--ease),
+    transform var(--t-slow) var(--ease);
+}
+
+.rail.is-show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0, -50%);
+}
+
+.rail a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rail__dot {
+  width: 9px;
+  height: 9px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--line-strong);
+  transition:
+    height var(--t-mid) var(--ease),
+    border-radius var(--t-mid) var(--ease),
+    background var(--t-mid) var(--ease),
+    box-shadow var(--t-mid) var(--ease);
+}
+
+.rail a:hover .rail__dot {
+  background: var(--accent);
+}
+
+/* The marker for the section being read stretches into a pill. */
+.rail a.is-active .rail__dot {
+  height: 24px;
+  border-radius: 5px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.rail__label {
+  padding: 0.22rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition:
+    opacity var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease);
+}
+
+.rail a:hover .rail__label,
+.rail a.is-active .rail__label {
+  opacity: 1;
+  transform: none;
+}
+
+.rail a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+.rail a:focus-visible .rail__label {
+  opacity: 1;
+  transform: none;
+}
+
+/* No room for it beside the content, and it duplicates the nav anyway. */
+@media (max-width: 1240px) {
+  .rail {
+    display: none;
+  }
+}

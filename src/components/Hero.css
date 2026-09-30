@@ -4,10 +4,11 @@
   padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 
-/* The portrait moved to the nav, so the copy runs full width — its own
-   max-widths (30ch headline, 54ch intro) keep the measure readable. */
 .hero__inner {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(290px, 27vw, 380px);
+  align-items: start;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
 }
 
 /* copy -------------------------------------------------------------------- */
@@ -88,6 +89,116 @@
 }
 
 
+/* focus panel ------------------------------------------------------------- */
+
+.hero__focus {
+  margin-top: 0.4rem;
+  padding: 1.15rem 1.25rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    var(--shadow-lift),
+    0 0 0 1px rgb(255 255 255 / 4%),
+    0 30px 80px -50px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.hero__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--good);
+}
+
+.hero__status i {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--good);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 20%, transparent);
+  animation: hero-live 2.6s var(--ease) infinite;
+}
+
+@keyframes hero-live {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.hero__focusTitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+.hero__areas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.hero__areas li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: baseline;
+}
+
+.hero__areaN {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.hero__areas b {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.hero__areas p {
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.hero__systems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding-top: 1rem;
+  margin-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero__systems span {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  color: var(--ink-2);
+  background: var(--surface-2);
+}
+
 /* stats ------------------------------------------------------------------- */
 
 .hero__stats {
@@ -125,6 +236,17 @@
   line-height: 1.35;
 }
 
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__focus {
+    margin-top: 1.75rem;
+    max-width: 30rem;
+  }
+}
+
 @media (max-width: 760px) {
   .hero__stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -139,5 +261,15 @@
 @media (max-width: 420px) {
   .hero__actions .btn {
     flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero__areas p {
+    display: none;
+  }
+
+  .hero__areas {
+    gap: 0.6rem;
   }
 }

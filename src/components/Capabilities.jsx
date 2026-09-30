@@ -24,7 +24,7 @@ export function Capabilities() {
   }
 
   return (
-    <section className="section section--alt" id="capabilities">
+    <section className="section" id="capabilities">
       <div className="shell">
         <div className="section-head reveal">
           <div>

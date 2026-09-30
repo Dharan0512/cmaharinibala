@@ -96,6 +96,37 @@ export const keywords = [
   'ICMAI',
 ]
 
+// The hero's side panel. It states the target roles up front — the one thing a
+// recruiter is looking for that the rest of the page only implies.
+
+export const focus = {
+  status: 'Open to FP&A roles',
+  title: 'Areas of interest',
+  areas: [
+    {
+      n: '01',
+      title: 'Financial planning & analysis',
+      body: 'Budgeting, forecasting, and the variance commentary that explains the gap.',
+    },
+    {
+      n: '02',
+      title: 'Management reporting',
+      body: 'MIS packs and KPI tracking that answer the question before it is asked.',
+    },
+    {
+      n: '03',
+      title: 'Record to report',
+      body: 'Month-end close, accruals and reconciliations that land on the deadline.',
+    },
+    {
+      n: '04',
+      title: 'Business partnering',
+      body: 'Sitting with the business and turning the numbers into a decision.',
+    },
+  ],
+  systems: ['SAP S/4HANA', 'Power BI', 'Microsoft Excel'],
+}
+
 export const heroStats = [
   { value: 2, suffix: ' yrs', label: 'FP&A & R2R experience' },
   { value: 50, suffix: '%', label: 'Manual processing time cut' },
@@ -105,8 +136,8 @@ export const heroStats = [
 // Order here drives the nav, the footer links and the scroll-spy, and must match
 // the order the sections are rendered in App.jsx.
 export const nav = [
-  { id: 'resume', label: 'Résumé', accent: true },
   { id: 'projects', label: 'Projects' },
+  { id: 'resume', label: 'Résumé', accent: true },
   { id: 'capabilities', label: 'Capabilities' },
   { id: 'about', label: 'About' },
   { id: 'vision', label: 'Vision' },
@@ -131,8 +162,8 @@ export const resume = {
 
 export const work = {
   eyebrow: 'Selected work',
-  title: 'Finance dashboards',
-  lede: 'Two dashboards built from raw transaction data — one on operating KPIs, one on the P&L itself. Both run live on this page: change a filter and every tile, chart and row recalculates.',
+  title: 'Projects',
+  lede: 'Finance dashboards built from raw transaction data — one on operating KPIs, one on the P&L itself. Open a project for the full case study: the dashboard running live, the method behind it, and what the numbers turned out to say.',
 }
 
 export const projects = [

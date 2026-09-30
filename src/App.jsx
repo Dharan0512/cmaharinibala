@@ -1,5 +1,6 @@
 import { Ambient } from './components/Ambient.jsx'
 import { Nav } from './components/Nav.jsx'
+import { Rail } from './components/Rail.jsx'
 import { Hero } from './components/Hero.jsx'
 import { Resume } from './components/Resume.jsx'
 import { FeaturedProject } from './components/FeaturedProject.jsx'
@@ -19,7 +20,7 @@ export default function App() {
     <>
       <Ambient />
 
-      <a className="skip" href="#resume">
+      <a className="skip" href="#projects">
         Skip to content
       </a>
 
@@ -27,8 +28,8 @@ export default function App() {
 
       <main id="main">
         <Hero />
-        <Resume />
         <FeaturedProject theme={theme} />
+        <Resume />
         <Capabilities />
         <About />
         <Vision />
@@ -36,6 +37,8 @@ export default function App() {
       </main>
 
       <Footer />
+
+      <Rail />
     </>
   )
 }
